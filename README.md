@@ -26,6 +26,8 @@ I did it for a technical test, Unity developer job offer.
     - Turn the cue with Right/Left arrow keys.
     - And Shot by smatching the space key.
 
-<img src="./captures/header.png" style="margin: auto; display: block;" />
-<img src="./captures/level1.png" style="margin: auto; float: left; width: 50%;" />
-<img src="./captures/level2.png" style="margin: auto; float: left; width: 50%;" />
+<img src="Captures/header.png" style="margin: auto; display: block;" />
+<p float="left">
+    <img src="Captures/level1.png" style="width: 50%;" />
+    <img src="Captures/level2.png" style="width: 50%;" />
+</p>
