@@ -1,0 +1,46 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &1125392468393730255
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 672017194935987382, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: Color
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 786514423501869226, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0.06007475
+      objectReference: {fileID: 0}
+    - target: {fileID: 786514423501869226, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0.06007475
+      objectReference: {fileID: 0}
+    - target: {fileID: 786514423501869226, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0.8490566
+      objectReference: {fileID: 0}
+    - target: {fileID: 786514423501869226, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_SortingLayer
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5106997373456513894, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5641797621470062796, guid: e998fd9019a8bba4496c0877b1c2ec92,
+        type: 3}
+      propertyPath: m_Name
+      value: Ball Red Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: e998fd9019a8bba4496c0877b1c2ec92, type: 3}

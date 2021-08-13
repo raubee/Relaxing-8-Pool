@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cf1786a426493a449882dbbf903167b, type: 3}
+  m_Name: GameSettings
+  m_EditorClassIdentifier: 
+  StartingScore: 4
+  LoseScore: 0
+  WinScore: 10
+  StartLevel: 0
+  Levels:
+  - {fileID: 11400000, guid: bb7ca7e5c68146f4f81983e554d10e88, type: 2}
+  - {fileID: 11400000, guid: 5142cfcf4dc0d9b4c8c05416e92416bb, type: 2}

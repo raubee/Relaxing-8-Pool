@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &3014748302938600912
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2220481358813296297, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2220481358813296297, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145816, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145816, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145816, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145816, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145817, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 3.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145817, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2948202730918145817, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 929baabc55ad65f489d33c9d3d78ba7a, type: 2}
+    - target: {fileID: 2948202730918145818, guid: fb16de08c8dda644b8076f314208d26e,
+        type: 3}
+      propertyPath: m_Name
+      value: Cushion Horizontal Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: fb16de08c8dda644b8076f314208d26e, type: 3}
