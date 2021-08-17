@@ -27,7 +27,7 @@ I did it for a technical test, Unity developer job offer.
     - And Shot by smatching the space key.
 
 <img src="Captures/header.png" style="margin: auto; display: block;" />
-<p float="left">
-    <img src="Captures/level1.png" style="width: 50%;" />
-    <img src="Captures/level2.png" style="width: 50%;" />
-</p>
+
+Standard              |  Infinity
+:-------------------------:|:-------------------------:
+![](Captures/level1.png)  |  ![](Captures/level2.png)
