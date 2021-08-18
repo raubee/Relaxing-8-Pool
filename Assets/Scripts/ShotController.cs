@@ -1,17 +1,8 @@
-﻿using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Events;
 
 namespace RP
 {
-    public enum ControllerType
-    {
-        None = -1,
-        Mouse,
-        Keyboard,
-        Touch
-    }
-
     /// <summary>
     /// <para> Performs white ball shots. </para>
     /// <remarks> Should be used on the white ball game object. </remarks>
@@ -19,10 +10,13 @@ namespace RP
     [RequireComponent(typeof(Rigidbody2D))]
     public class ShotController : MonoBehaviour
     {
-        [SerializeField] private ControllerType _defaultControllerType;
+        /// <summary>
+        /// <para> Current shot provider implementation. </para>
+        /// </summary>
+        [SerializeField] private ShotCommandProvider commandProvider;
 
         /// <summary>
-        /// <para> Reference the pool cue transform. Updated in UpdateCueTransform </para>
+        /// <para> Reference the pool cue transform. Updated in UpdateCueTransform. </para>
         /// </summary>
         [SerializeField] private Transform cueTransform;
 
@@ -40,9 +34,6 @@ namespace RP
 
         #endregion
 
-        private ControllerType _controller = ControllerType.None;
-        private IShotCommandProvider _commandProvider;
-
         private Vector3 _force;
 
         private Rigidbody2D _rigidBody;
@@ -52,12 +43,6 @@ namespace RP
         private void Awake()
         {
             _rigidBody = GetComponent<Rigidbody2D>();
-        }
-
-        private void Start()
-        {
-            if (_controller == ControllerType.None)
-                SetController(_defaultControllerType);
         }
 
         private void OnEnable()
@@ -75,13 +60,13 @@ namespace RP
 
         private void Update()
         {
-            if (_commandProvider == null)
+            if (!commandProvider)
                 return;
 
             UpdateShotForce();
             UpdateCueTransform();
 
-            if (_commandProvider.TriggerShot())
+            if (commandProvider.TriggerShot())
             {
                 Shot();
             }
@@ -109,56 +94,9 @@ namespace RP
             return _force;
         }
 
-        public void SetMouseController()
+        public void SetController(ShotCommandProvider controller)
         {
-            if (_controller == ControllerType.Mouse)
-                return;
-
-            SetController(ControllerType.Mouse);
-        }
-
-        public void SetKeyboardController()
-        {
-            if (_controller == ControllerType.Keyboard)
-                return;
-
-            SetController(ControllerType.Keyboard);
-        }
-
-        public void SetController(in ControllerType controller)
-        {
-            _controller = controller;
-
-            switch (_controller)
-            {
-                case ControllerType.Mouse:
-                    _commandProvider = new MouseShotCommandProvider();
-                    break;
-
-                case ControllerType.Keyboard:
-                    _commandProvider = new KeyboardShotCommandProvider();
-                    break;
-
-                case ControllerType.Touch:
-                    _commandProvider = new TouchShotCommandProvider();
-                    break;
-            }
-        }
-
-        public ControllerType[] GetSupportedControllers()
-        {
-            var controllerList = new List<ControllerType>(4);
-
-#if UNITY_STANDALONE || UNITY_EDITOR
-            controllerList.Add(ControllerType.Mouse);
-            controllerList.Add(ControllerType.Keyboard);
-#elif (UNITY_ANDROID || UNITY_IPHONE || UNITY_IOS)
-            if (Input.touchSupported)
-            {
-                controllerList.Add(ControllerType.Touch);
-            }
-#endif
-            return controllerList.ToArray();
+            commandProvider = controller;
         }
 
         #endregion
@@ -167,7 +105,7 @@ namespace RP
 
         private void UpdateShotForce()
         {
-            _force = _commandProvider.GetShotForce();
+            _force = commandProvider.GetShotForce();
         }
 
         private void UpdateCueTransform()

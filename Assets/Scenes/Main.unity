@@ -4125,11 +4125,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shotController: {fileID: 1620085516}
+  mouseCommandProvider: {fileID: 11400000, guid: 101723dbee8c86c40b2f0e6dd462585e,
+    type: 2}
+  keyboardCommandProvider: {fileID: 11400000, guid: 9bdeb466a618b2a4d94cc8e8618750ad,
+    type: 2}
+  touchCommandProvider: {fileID: 11400000, guid: c431273a01086cf4791492306a07c88b,
+    type: 2}
   controlText: {fileID: 822719628}
   MouseControlButton: {fileID: 8247269491263980197}
   KeyboardControlButton: {fileID: 8247269491565134981}
-  StartGameButton: {fileID: 1515049718}
+  TouchControlButton: {fileID: 1515049718}
   QuitGameButton: {fileID: 1066200340}
+  OnControllerSelected:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1411902725}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 2051698822}
+        m_MethodName: StartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1411902724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4423,10 +4454,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c38c9b66495065458373ebe566338db, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shotController: {fileID: 1620085516}
   controlsBlock: {fileID: 1003573610}
-  mouseButton: {fileID: 8247269492108655496}
-  keyboardButton: {fileID: 8247269491286564962}
   musicMixerGroup: {fileID: -8648905136962263165, guid: f5feaee01f4dd594fb2bfce030285c21,
     type: 2}
   fxMixerGroup: {fileID: 6754746095461812451, guid: f5feaee01f4dd594fb2bfce030285c21,
@@ -4466,7 +4494,7 @@ GameObject:
   - component: {fileID: 1515049719}
   - component: {fileID: 1515049718}
   m_Layer: 5
-  m_Name: Start Game Button
+  m_Name: Mobile Start Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4535,23 +4563,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2051698822}
-        m_MethodName: StartGame
-        m_Mode: 1
+      - m_Target: {fileID: 1411902723}
+        m_MethodName: SelectController
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1411902725}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: c431273a01086cf4791492306a07c88b,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RP.ShotCommandProvider, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -4889,6 +4907,11 @@ PrefabInstance:
       propertyPath: ForceMultiplier
       value: 80
       objectReference: {fileID: 0}
+    - target: {fileID: 1695172756, guid: 78195b99fa09d5847804e106ef6c0035, type: 3}
+      propertyPath: commandProvider
+      value: 
+      objectReference: {fileID: 11400000, guid: 101723dbee8c86c40b2f0e6dd462585e,
+        type: 2}
     - target: {fileID: 1695172756, guid: 78195b99fa09d5847804e106ef6c0035, type: 3}
       propertyPath: maxForceMagnitude
       value: 1
@@ -6870,34 +6893,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1620085516}
-        m_MethodName: SetMouseController
-        m_Mode: 1
+      - m_Target: {fileID: 1411902723}
+        m_MethodName: SelectController
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2051698822}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1411902725}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 101723dbee8c86c40b2f0e6dd462585e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RP.ShotCommandProvider, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -6974,11 +6976,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1620085516}
-        m_MethodName: SetKeyboardController
-        m_Mode: 1
+        m_MethodName: SetController
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 9bdeb466a618b2a4d94cc8e8618750ad,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RP.ShotCommandProvider, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7163,34 +7166,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1620085516}
-        m_MethodName: SetKeyboardController
-        m_Mode: 1
+      - m_Target: {fileID: 1411902723}
+        m_MethodName: SelectController
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 2051698822}
-        m_MethodName: StartGame
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1411902725}
-        m_MethodName: set_enabled
-        m_Mode: 6
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 9bdeb466a618b2a4d94cc8e8618750ad,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RP.ShotCommandProvider, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7545,11 +7527,12 @@ MonoBehaviour:
           m_BoolArgument: 0
         m_CallState: 2
       - m_Target: {fileID: 1620085516}
-        m_MethodName: SetMouseController
-        m_Mode: 1
+        m_MethodName: SetController
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 11400000, guid: 101723dbee8c86c40b2f0e6dd462585e,
+            type: 2}
+          m_ObjectArgumentAssemblyTypeName: RP.ShotCommandProvider, Assembly-CSharp
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 

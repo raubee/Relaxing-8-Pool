@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.UI;
 
 namespace RP.UI.Menu
 {
@@ -14,12 +13,11 @@ namespace RP.UI.Menu
         private const string AUDIO_MIXER_PROPERTY_VOLUME_FX = "VolumeFx";
         private const float MUTE_DB = -80f;
 
-        [Header("Controls")] [SerializeField] private ShotController shotController;
+        [Header("Controls")]
         [SerializeField] private GameObject controlsBlock;
-        [SerializeField] private Button mouseButton;
-        [SerializeField] private Button keyboardButton;
 
-        [Header("Audios")] [SerializeField] private AudioMixerGroup musicMixerGroup;
+        [Header("Audios")] 
+        [SerializeField] private AudioMixerGroup musicMixerGroup;
         [SerializeField] private AudioMixerGroup fxMixerGroup;
 
         private float _savedFxVolume;
@@ -34,26 +32,14 @@ namespace RP.UI.Menu
         }
 
         /// <summary>
-        /// <para> Enables controls selector button depending on the supported controllers. </para>
+        /// <para> Enables controls settings depending on runtime platform. </para>
         /// <remarks> Called once at start. </remarks>
         /// </summary>
         private void SetupControlsLayout()
         {
-            var controllers = shotController.GetSupportedControllers();
-
-            if (controllers.Length < 2)
+            if (Application.isMobilePlatform)
             {
-                controlsBlock.gameObject.SetActive(false);
-                return;
-            }
-
-            foreach (var controller in controllers)
-            {
-                if (controller == ControllerType.Mouse)
-                    mouseButton.gameObject.SetActive(true);
-
-                if (controller == ControllerType.Keyboard)
-                    keyboardButton.gameObject.SetActive(true);
+                controlsBlock.SetActive(false);
             }
         }
 

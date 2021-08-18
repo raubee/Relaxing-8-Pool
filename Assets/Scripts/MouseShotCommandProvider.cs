@@ -3,7 +3,8 @@ using UnityEngine.EventSystems;
 
 namespace RP
 {
-    public class MouseShotCommandProvider : IShotCommandProvider
+    [CreateAssetMenu(menuName = "RP/Controllers/Mouse")]
+    public class MouseShotCommandProvider : ShotCommandProvider
     {
         private const float DRAG_DISTANCE = 5f;
 
@@ -12,7 +13,7 @@ namespace RP
 
         private bool _pressed;
 
-        public Vector3 GetShotForce()
+        public override Vector3 GetShotForce()
         {
             if (InputHelper.GetAnyMouseButtonDown() &&
                 !EventSystem.current.IsPointerOverGameObject()) // fix: avoid UI click
@@ -40,7 +41,7 @@ namespace RP
             return _force;
         }
 
-        public bool TriggerShot()
+        public override bool TriggerShot()
         {
             if (_pressed && InputHelper.GetAnyMouseButtonUp())
             {

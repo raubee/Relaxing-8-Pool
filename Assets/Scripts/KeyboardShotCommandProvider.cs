@@ -2,7 +2,8 @@
 
 namespace RP
 {
-    public class KeyboardShotCommandProvider : IShotCommandProvider
+    [CreateAssetMenu(menuName="RP/Controllers/Keyboard")]
+    public class KeyboardShotCommandProvider : ShotCommandProvider
     {
         private const float ANGLE_STEP = 0.005f; // radians
         private const float FORCE_STEP = 0.005f;
@@ -10,7 +11,7 @@ namespace RP
         private float _angle = Mathf.PI; // In radians
         private float _force = 0.5f;
 
-        public Vector3 GetShotForce()
+        public override Vector3 GetShotForce()
         {
             UpdateAngle();
             UpdateForce();
@@ -18,7 +19,7 @@ namespace RP
             return new Vector3(Mathf.Cos(_angle), Mathf.Sin(_angle), 0) * _force;
         }
 
-        public bool TriggerShot()
+        public override bool TriggerShot()
         {
             return Input.GetKey(KeyCode.Space);
         }

@@ -2,14 +2,15 @@
 
 namespace RP
 {
-    public class TouchShotCommandProvider : IShotCommandProvider
+    [CreateAssetMenu(menuName = "RP/Controllers/Touch")]
+    public class TouchShotCommandProvider : ShotCommandProvider
     {
         private const float DRAG_DISTANCE = 5f;
 
         private Vector3 _force = Vector3.zero;
         private Vector3 _touchPosition = Vector3.zero;
 
-        public Vector3 GetShotForce()
+        public override Vector3 GetShotForce()
         {
             if (Input.touchCount > 0)
             {
@@ -39,7 +40,7 @@ namespace RP
             return _force;
         }
 
-        public bool TriggerShot()
+        public override bool TriggerShot()
         {
             if (Input.touchCount > 0)
             {

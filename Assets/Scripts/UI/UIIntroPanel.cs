@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace RP
@@ -8,57 +9,45 @@ namespace RP
     /// </summary>
     public class UIIntroPanel : MonoBehaviour
     {
-        private const string NO_CONTROLLER_MESSAGE = "No controller supported :/!";
-
+        [Header("Controllers")]
         [SerializeField] private ShotController shotController;
+
+        [Space]
+        [SerializeField] private ShotCommandProvider mouseCommandProvider;
+        [SerializeField] private ShotCommandProvider keyboardCommandProvider;
+        [SerializeField] private ShotCommandProvider touchCommandProvider;
 
         [SerializeField] private Text controlText;
 
         [SerializeField] private Button MouseControlButton;
         [SerializeField] private Button KeyboardControlButton;
-        [SerializeField] private Button StartGameButton;
+        [SerializeField] private Button TouchControlButton;
         [SerializeField] private Button QuitGameButton;
+
+        public UnityEvent OnControllerSelected = new UnityEvent();
 
         private void Start()
         {
-            var controllers = shotController.GetSupportedControllers();
-
-            if (controllers.Length == 0)
+            if (Application.isMobilePlatform)
             {
-                controlText.text = NO_CONTROLLER_MESSAGE;
                 MouseControlButton.gameObject.SetActive(false);
                 KeyboardControlButton.gameObject.SetActive(false);
-                StartGameButton.gameObject.SetActive(false);
+                TouchControlButton.gameObject.SetActive(true);
                 QuitGameButton.gameObject.SetActive(true);
                 return;
             }
 
-            QuitGameButton.gameObject.SetActive(false);
-
-            if (controllers.Length < 2)
-            {
-                controlText.gameObject.SetActive(false);
-                MouseControlButton.gameObject.SetActive(false);
-                KeyboardControlButton.gameObject.SetActive(false);
-
-                if (StartGameButton != null)
-                    StartGameButton.gameObject.SetActive(true);
-
-                shotController.SetController(controllers[0]);
-                return;
-            }
-
-            StartGameButton.gameObject.SetActive(false);
             controlText.gameObject.SetActive(true);
+            QuitGameButton.gameObject.SetActive(false);
+            TouchControlButton.gameObject.SetActive(false);
+            MouseControlButton.gameObject.SetActive(true);
+            KeyboardControlButton.gameObject.SetActive(true);
+        }
 
-            foreach (var controller in controllers)
-            {
-                if (controller == ControllerType.Mouse)
-                    MouseControlButton.gameObject.SetActive(true);
-
-                if (controller == ControllerType.Keyboard)
-                    KeyboardControlButton.gameObject.SetActive(true);
-            }
+        public void SelectController(ShotCommandProvider provider)
+        {
+            shotController.SetController(provider);
+            OnControllerSelected.Invoke();
         }
     }
 }
