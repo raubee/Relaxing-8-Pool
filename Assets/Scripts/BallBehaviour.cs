@@ -31,8 +31,8 @@ namespace RP
         /// </summary>
         [HideInInspector] public bool Stationary = true;
 
-        [Header("Audio settings")] 
-        [SerializeField] private float relativeForceToPlaySound = 2.0f;
+        [Header("Audio settings")] [SerializeField]
+        private float relativeForceToPlaySound = 2.0f;
 
         /// <summary>
         /// <para> Audio clips played when the ball collided another ball. </para>
@@ -124,11 +124,10 @@ namespace RP
         /// </summary>
         private void PlayRandomCollidedBallSound()
         {
-            if (ballCollidedBallClips.Length == 0)
-                return;
-
-            var i = Random.Range(0, ballCollidedBallClips.Length);
-            _audioSource.PlayOneShot(ballCollidedBallClips[i]);
+            if (ballCollidedBallClips.TryPickRandom(out var clip))
+            {
+                _audioSource.PlayOneShot(clip);
+            }
         }
 
         /// <summary>
